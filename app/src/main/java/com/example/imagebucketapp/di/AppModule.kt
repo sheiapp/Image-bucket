@@ -1,5 +1,6 @@
 package com.example.imagebucketapp.di
 
+import android.content.ContentResolver
 import android.content.Context
 import androidx.room.Room
 import com.example.imagebucketapp.persistant_data.ImageDatabase
@@ -31,4 +32,8 @@ object AppModule {
     @Singleton
     fun mainRepositoryProvider(imageDatabase: ImageDatabase) = MainRepository(imageDatabase)
 
+    @Provides
+    @Singleton
+    fun contentResolverProvider(@ApplicationContext context: Context): ContentResolver =
+        context.contentResolver
 }

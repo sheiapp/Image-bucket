@@ -32,6 +32,10 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0">
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/searchLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
 
                     <EditText
                         android:id="@+id/searchImg"
@@ -41,16 +45,28 @@
                         android:layout_marginEnd="@dimen/margin_30"
                         android:layout_marginTop="@dimen/margin_20"
                         android:background="@color/search_box_bg"
-                        android:drawableEnd="@drawable/ic_search"
-                        android:drawablePadding="@dimen/padding_search_box"
                         android:hint="@string/search_image"
                         android:imeOptions="actionSearch"
                         android:inputType="textNoSuggestions"
                         android:maxLines="1"
                         android:padding="@dimen/padding_search_box"
-                        android:textColor="@color/black"
-                        android:textColorHint="@color/white" />
+                        android:textColorHint="@color/white"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
 
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/searchButton"
+                        style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:icon="@drawable/ic_search"
+                        app:iconGravity="textStart"
+                        app:layout_constraintBottom_toBottomOf="@+id/searchImg"
+                        app:layout_constraintEnd_toEndOf="@+id/searchImg"
+                        app:layout_constraintTop_toTopOf="@+id/searchImg" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
                     <Button
                         android:id="@+id/selectImg"
                         android:layout_width="match_parent"
@@ -60,23 +76,6 @@
                         android:layout_marginTop="@dimen/margin_20"
                         android:text="@string/select_image" />
 
-                    <Button
-                        android:id="@+id/uploadImg"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/margin_30"
-                        android:layout_marginEnd="@dimen/margin_30"
-                        android:layout_marginTop="@dimen/margin_20"
-                        android:text="@string/upload" />
-
-                    <Button
-                        android:id="@+id/retrieveImg"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/margin_30"
-                        android:layout_marginEnd="@dimen/margin_30"
-                        android:layout_marginTop="@dimen/margin_20"
-                        android:text="@string/retrieve" />
 
                     <ImageView
                         android:id="@+id/imgView"
@@ -89,39 +88,39 @@
 
                 </LinearLayout>
 
-                <LinearLayout
-                    android:id="@+id/permission_rationale_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center_horizontal|center_vertical"
-                    android:orientation="vertical"
-                    android:visibility="invisible"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
 
-
-                    <TextView
-                        android:id="@+id/permission_required_text"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="72dp"
-                        android:layout_marginEnd="72dp"
-                        android:gravity="center"
-                        android:paddingTop="16dp"
-                        android:text="@string/permission_not_granted" />
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/grant_permission_button"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:text="@string/grant_permission" />
-
-                </LinearLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </ScrollView>
+
+        <LinearLayout
+            android:id="@+id/permission_rationale_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal|center_vertical"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+
+            <TextView
+                android:id="@+id/permission_required_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="72dp"
+                android:layout_marginEnd="72dp"
+                android:gravity="center"
+                android:paddingTop="16dp"
+                android:text="@string/permission_not_granted" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/grant_permission_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/grant_permission" />
+
+        </LinearLayout>
 
     </RelativeLayout>
 </layout>
